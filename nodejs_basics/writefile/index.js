@@ -25,8 +25,21 @@ const server = http.createServer((req,res)=>{
         case "/about":
             if(method==="POST")
             {
+                const body= [];
+                req.on("data",(chunk)=>{
+                    console.log("Chunk",chunk);
+                    body.push(chunk);
+
+                });
+                req.on("end",()=>{
+                    const resposne = Buffer.concat(body).toString();
+                    const message = resposne.split("=")[1];
+                    fs.writeFileSync("hello.txt",message);
+                    console.log(resposne);
+
+                });
                 console.log(req);
-                fs.writeFileSync("hello.txt","Good Morning ")
+               
                 res.write("About"+method);
             }
           
