@@ -7,6 +7,8 @@ import contactRouter from './router/contactRouter.js';
 import serviceRouter from './router/servicesrouter.js';
 
 const app = express();
+app.set("view engine","hbs");
+app.set("views", "views");
 dotenv.config();
 const PORT = process.env.PORT_NUMBER
 app.use(express.static('public'));
