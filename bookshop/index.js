@@ -7,10 +7,11 @@ import contactRouter from './router/contactRouter.js';
 import serviceRouter from './router/servicesrouter.js';
 
 const app = express();
-
 dotenv.config();
+const PORT = process.env.PORT_NUMBER
+app.use(express.static('public'));
 app.use(homeRouter,aboutRouter,contactRouter,serviceRouter);
-app.listen(4000,()=>{
-    console.log(`http://localhost:${4000}`);
+app.listen(PORT,()=>{
+    console.log(`http://localhost:${PORT}`);
 })
 
