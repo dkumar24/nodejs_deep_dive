@@ -1,7 +1,7 @@
 import getPagePathByName from "../util/loadpage.js";
 const servicesController = (req,res)=>{
     console.log(req);
-    res.sendFile(getPagePathByName("services.html"));
+    res.render("services");
 }
 
 export default servicesController;
