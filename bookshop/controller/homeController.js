@@ -1,7 +1,8 @@
 import getPagePathByName from "../util/loadpage.js";
 const homeController = (req,res)=>{
     console.log(req);
-    res.render("home")
+    const demo = {title:"Home",description:"This is Home Page"}
+    res.render("home",{demo:demo});
 }
 
 export default homeController;
