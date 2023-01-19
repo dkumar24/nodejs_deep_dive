@@ -1,0 +1,17 @@
+<%- include("./includes/header")%>   
+    <form method="post" action="/addTask">
+        <input type="text" hint="Enter Task" id="name" name="title"/>
+        <input type="submit" value="Add Task">
+    </form>
+<%- include('./includes/end')%>
+<ul>
+<%data.forEach((task)=>{%>
+    <li><div>
+        <h1><%=task%></h1> <form method="post" action="/deleteTask/<%=task%>">
+            <input type="submit" value="Remove"></input>
+            </form>
+            <br> <a href="/updateTask/<%=task%>">Update</a>
+    </div></li>
+<%});%>
+
+</ul>
